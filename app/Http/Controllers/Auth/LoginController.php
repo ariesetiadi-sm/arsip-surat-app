@@ -32,6 +32,6 @@ class LoginController extends Controller
         }
 
         // Redirect ke halaman dashboard
-        return redirect()->to('/');
+        return redirect()->to('/')->with('welcome', 'Selamat datang, ' . auth()->user()->nama);
     }
 }

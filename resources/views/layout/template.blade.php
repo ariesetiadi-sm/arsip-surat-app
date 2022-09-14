@@ -11,6 +11,9 @@
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>{{ $title ?? 'Title' }} | Administrator Arsip</title>
 </head>
@@ -28,10 +31,10 @@
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{-- Profile Icon --}}
-                    <i class="fas fa-user fa-fw"></i>
+                    <img width="30px" src="img/profile/{{ auth()->user()->photo }}" alt="Profile Icon">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="/profile">Profile</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
@@ -75,7 +78,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Sedang login:</div>
-                    Administrator
+                    {{ auth()->user()->nama }}
                 </div>
             </nav>
         </div>
@@ -84,8 +87,7 @@
         <div id="layoutSidenav_content">
             {{-- Main Content --}}
             <main>
-                <div class="container-fluid px-4">
-                    <h1 class="my-4">{{ $title ?? 'Title' }}</h1>
+                <div class="container-fluid px-4 pt-4">
                     @yield('content')
                 </div>
             </main>
@@ -108,6 +110,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+    </script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+    </script>
+
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="js/chart-area-demo.js"></script>
@@ -115,6 +124,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="js/datatables-demo.js"></script>
+    <script src="js/profile.js"></script>
 
     <script>
         $('#footer-year').text(new Date().getFullYear());
