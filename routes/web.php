@@ -30,4 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     });
+
+    // Pengguna
+    Route::middleware([])->prefix('/pengguna')->group(function () {
+        Route::get('/', [PenggunaController::class, 'index']);
+        Route::get('/create', [PenggunaController::class, 'create']);
+        Route::post('/insert', [PenggunaController::class, 'insert']);
+        Route::get('/edit/{id}', [PenggunaController::class, 'edit']);
+        Route::put('/update', [PenggunaController::class, 'update']);
+        Route::get('/delete/{id}', [PenggunaController::class, 'delete']);
+    });
 });

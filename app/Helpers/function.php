@@ -13,7 +13,7 @@ function uploadFile($file, $path)
 
     // Buat nama file
     $fileName = time() . '_' . str($file->getClientOriginalName())->lower();
-    
+
     // Move gambar ke public
     // $file->move('uploaded/files/', $fileName);
     $file->move($path, $fileName);
@@ -39,4 +39,14 @@ function uploadFiles($files)
     }
 
     return $fileNames;
+}
+
+function isAdmin()
+{
+    return auth()->user()->jenis_pengguna == 'admin';
+}
+
+function isUser()
+{
+    return auth()->user()->jenis_pengguna == 'user';
 }
