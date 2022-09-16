@@ -13,9 +13,6 @@
             <div class="col-12 col-md-6" style="height: 65vh">
                 <div class="card h-100">
                     <div class="card-header d-flex justify-content-end">
-                        <a id="ubah-profile" href="#ubah-profile" title="Ubah Profile">
-                            <i class="fa-solid fa-pen"></i>
-                        </a>
                     </div>
                     <div class="card-body">
                         <center>
@@ -41,48 +38,6 @@
                             <small class="d-block mt-3 text-secondary">Email :</small>
                             <h5 class="">{{ $pengguna->email }}</h5>
                         </center>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Form Edit Profile --}}
-            <div id="ubah-profile-card" class="col-12 col-md-6 d-none" style="height: 65vh">
-                <div class="card h-100">
-                    <div class="card-header d-flex justify-content-between">
-                        <span>Ubah Profile</span>
-                        <a id="ubah-profile-close" href="#">
-                            <i class="fa-solid fa-x"></i>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <form action="/profile/update" method="POST">
-                            @csrf
-                            {{-- Hidden ID --}}
-                            <input name="id" type="hidden" value="{{ $pengguna->id }}">
-
-                            {{-- Ubah Nama --}}
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Nama :</label>
-                                <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama"
-                                    value="{{ $pengguna->nama }}">
-                            </div>
-
-                            {{-- Ubah Email --}}
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email :</label>
-                                <input name="email" type="text" class="form-control" id="email" placeholder="Email"
-                                    value="{{ $pengguna->email }}">
-                            </div>
-
-                            {{-- Ubah password --}}
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password (Optional) :</label>
-                                <input name="password" type="password" class="form-control" id="password"
-                                    placeholder="Password">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block mt-5">Ubah</button>
-                        </form>
                     </div>
                 </div>
             </div>

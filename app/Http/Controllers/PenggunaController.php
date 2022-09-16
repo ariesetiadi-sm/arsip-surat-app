@@ -15,6 +15,13 @@ class PenggunaController extends Controller
         return view('pengguna.index', $data);
     }
 
+    public function detail($id)
+    {
+        $data['title'] = 'Detail Pengguna';
+        $data['pengguna'] = Pengguna::find($id);
+        return view('pengguna.detail', $data);
+    }
+
     public function create()
     {
         $data['title'] = 'Tambah Pengguna';
@@ -46,12 +53,35 @@ class PenggunaController extends Controller
 
     public function edit($id)
     {
-        dd('Pengguna - Edit', $id);
+        $data['title'] = 'Ubah Pengguna';
+        $data['pengguna'] = Pengguna::find($id);
+        return view('pengguna.edit', $data);
     }
 
     public function update(Request $request)
     {
-        dd('Pengguna - Update', $request->all());
+        // Ambil data dari form ubah pengguna
+        $id = $request->id;
+        $nama = $request->nama;
+        $email = $request->email;
+        $jenisPengguna = $request->jenisPengguna;
+        $password = $request->password;
+
+        // Ubah data pengguna
+        $pengguna = Pengguna::find($id);
+        $pengguna->update([
+            'nama' => $nama,
+            'email' => $email,
+            'jenis_pengguna' => $jenisPengguna,
+        ]);
+
+        // Ubah password jika ada
+        if ($password) {
+            $pengguna->update(['password' => Hash::make($password)]);
+        }
+
+        // Redirect ke halaman pengguna kembali
+        return redirect()->to('/pengguna')->with('success', 'Berhasil mengubah data pengguna.');
     }
 
     public function delete($id)
@@ -60,9 +90,10 @@ class PenggunaController extends Controller
         $pengguna = Pengguna::find($id);
 
         // Hapus data pengguna jika ada
-        if ($pengguna) {
-            $pengguna->delete();
+        if (!$pengguna) {
+            return back();
         }
+        $pengguna->delete();
 
         // Kembali ke halaman utama pengguna
         return back()->with('success', 'Berhasil menghapus data pengguna.');

@@ -32,7 +32,7 @@
                     <tr>
                         <td>{{ $i + 1 }}</td>
                         <td>
-                            <img width="40px" src="img/profile/{{ $item->photo }}" alt="Profile Photo"
+                            <img width="40px" src="{{ asset('img/profile/') . '/' . $item->photo }}" alt="Profile Photo"
                                 class="rounded-circle">
                         </td>
                         <td>{{ $item->username }}</td>
@@ -42,10 +42,12 @@
                             <span class="text-capitalize">{{ $item->jenis_pengguna }}</span>
                         </td>
                         <td>
-                            <a href="#" class="d-inline-block mx-1" title="Detail Pengguna">
+                            <a href="/pengguna/{{ $item->id }}" class="d-inline-block mx-1" title="Detail Pengguna">
                                 <i class="fa-solid fa-circle-info"></i>
                             </a>
-                            <a href="#" class="d-inline-block mx-1" title="Ubah Pengguna">
+
+                            {{-- Tombol ubah pengguna --}}
+                            <a href="/pengguna/edit/{{ $item->id }}" class="d-inline-block mx-1" title="Ubah Pengguna">
                                 <i class="fa-solid fa-pen"></i>
                             </a>
 
