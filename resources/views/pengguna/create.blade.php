@@ -7,6 +7,7 @@
 
     <div class="card mt-5">
         <div class="card-header">
+            <i class="fa-solid fa-user-plus"></i>
             Form Tambah Pengguna
         </div>
         <form action="/pengguna/insert" method="POST">

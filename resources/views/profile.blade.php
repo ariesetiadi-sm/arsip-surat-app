@@ -12,7 +12,8 @@
             {{-- Profile --}}
             <div class="col-12 col-md-6" style="height: 65vh">
                 <div class="card h-100">
-                    <div class="card-header d-flex justify-content-end">
+                    <div class="card-header d-flex justify-content-between">
+                        <i class="fa-solid fa-user"></i>
                         <a id="ubah-profile" href="#ubah-profile" title="Ubah Profile">
                             <i class="fa-solid fa-pen"></i>
                         </a>

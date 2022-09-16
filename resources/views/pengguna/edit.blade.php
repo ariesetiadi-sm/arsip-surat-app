@@ -7,6 +7,7 @@
 
     <div class="card mt-5">
         <div class="card-header">
+            <i class="fa-solid fa-user-pen"></i>
             Form Ubah Pengguna
         </div>
         <form action="/pengguna/update/{{ $pengguna->id }}" method="POST">

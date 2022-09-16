@@ -12,7 +12,8 @@
             {{-- Profile --}}
             <div class="col-12 col-md-6" style="height: 65vh">
                 <div class="card h-100">
-                    <div class="card-header d-flex justify-content-end">
+                    <div class="card-header">
+                        <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="card-body">
                         <center>
