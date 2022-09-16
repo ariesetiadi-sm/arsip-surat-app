@@ -62,12 +62,14 @@
 
                         <div class="sb-sidenav-menu-heading">Menu</div>
                         {{-- Sidebar Kelola Pengguna --}}
-                        <a class="nav-link" href="/pengguna">
-                            <div class="sb-nav-link-icon">
-                                <i class="fa-regular fa-user"></i>
-                            </div>
-                            Pengguna
-                        </a>
+                        @if (isAdmin())
+                            <a class="nav-link" href="/pengguna">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fa-regular fa-user"></i>
+                                </div>
+                                Pengguna
+                            </a>
+                        @endif
 
                         {{-- Sidebar Surat Masuk --}}
                         <a class="nav-link" href="/surat-masuk">

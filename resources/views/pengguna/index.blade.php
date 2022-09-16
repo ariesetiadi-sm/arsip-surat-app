@@ -42,7 +42,9 @@
                             <span class="text-capitalize">{{ $item->jenis_pengguna }}</span>
                         </td>
                         <td>
-                            <a href="/pengguna/{{ $item->id }}" class="d-inline-block mx-1" title="Detail Pengguna">
+                            {{-- Tombol detail pengguna --}}
+                            <a href="/pengguna/detail/{{ $item->id }}" class="d-inline-block mx-1"
+                                title="Detail Pengguna">
                                 <i class="fa-solid fa-circle-info"></i>
                             </a>
 

@@ -16,6 +16,11 @@ class AuthAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+        // Return back jika bukan administrator
+        if (auth()->user()->jenis_pengguna != 'admin') {
+            return back();
+        }
+
         return $next($request);
     }
 }

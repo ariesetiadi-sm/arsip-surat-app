@@ -28,13 +28,13 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard
     Route::get('/', function () {
-        return view('dashboard');
+        return view('dashboard', ['title' => 'Dashboard']);
     });
 
     // Pengguna
-    Route::middleware([])->prefix('/pengguna')->group(function () {
+    Route::middleware(['auth.admin'])->prefix('/pengguna')->group(function () {
         Route::get('/', [PenggunaController::class, 'index']);
-        Route::get('/{id}', [PenggunaController::class, 'detail']);
+        Route::get('/detail/{id}', [PenggunaController::class, 'detail']);
         Route::get('/create', [PenggunaController::class, 'create']);
         Route::post('/insert', [PenggunaController::class, 'insert']);
         Route::get('/edit/{id}', [PenggunaController::class, 'edit']);
